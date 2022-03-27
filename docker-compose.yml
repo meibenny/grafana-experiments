@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  grafana:
+    image: grafana/grafana-oss:8.2.6
+    environment:
+      GF_SERVER_HTTP_PORT: 3141
+    ports:
+      - "3141:3141"
+  db:
+    image: postgres:14.2-bullseye
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: txns
+    ports:
+      - "3142:5432"
